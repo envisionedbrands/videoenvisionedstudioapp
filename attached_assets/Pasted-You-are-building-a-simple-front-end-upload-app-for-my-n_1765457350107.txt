@@ -1,0 +1,90 @@
+You are building a simple front-end upload app for my n8n automation.
+
+## 🔥 PURPOSE OF THE APP
+Create a clean, minimal UI where a user can:
+1. Upload an MP4 file OR paste a YouTube link.
+2. Choose clip size (dropdown).
+3. Choose clip duration (dropdown).
+4. Choose number of clips (number input).
+5. Submit to an n8n Webhook URL.
+
+The app must send the data to this webhook:
+
+WEBHOOK_URL = "https://envisionedos.app.n8n.cloud/webhook/<YOUR_WEBHOOK_PATH>"
+
+(Replace <YOUR_WEBHOOK_PATH> with the actual UUID path.)
+
+## 🧩 STRUCTURE THE APP MUST HAVE
+
+### 📌 PAGE STRUCTURE
+- Header: "Envisioned Video Repurpose"
+- Section: "Upload Video"
+- Fields:
+  - File upload (MP4 only)
+  - OR YouTube URL input field
+  - Dropdown: Clip Size (1920x1080, 1080x1920, 1080x1080)
+  - Dropdown: Clip Duration (1 minute, 3 minutes, 5 minutes)
+  - Number input: How many clips
+- Submit button
+
+### 📌 VALIDATION RULES
+- User must choose either:
+  - an MP4 file **OR**
+  - a YouTube URL
+- Never both at the same time.
+- If MP4 is selected:
+  - Force check that the file is video/mp4.
+- If YouTube link is selected:
+  - Validate it's a YouTube URL (regex accepted).
+- Clip count cannot be negative or zero.
+
+### 📌 WHAT THE FRONT-END MUST SEND TO THE WEBHOOK
+On submit, POST the following JSON structure:
+
+IF user uploaded an MP4:
+{
+  "video_type": "mp4",
+  "file_name": "<uploaded filename>",
+  "file_base64": "<base64 of file>",
+  "clip_size": "<value>",
+  "clip_duration": "<value>",
+  "clip_count": <number>
+}
+
+IF user provided a YouTube link:
+{
+  "video_type": "youtube",
+  "video_url": "<youtube url>",
+  "clip_size": "<value>",
+  "clip_duration": "<value>",
+  "clip_count": <number>
+}
+
+### 📌 LOGIC RULES
+- If MP4 file exists, ignore YouTube input.
+- If YouTube URL exists, ignore file input.
+- Disable submit while uploading.
+- Show loading animation during webhook call.
+- Show success message: “Your video is being processed.”
+- On error, show the webhook error response.
+
+### 📌 UI REQUIREMENTS
+- Clean minimal UI
+- Brand colors: #000000, #ffffff, #e5d6c7 (optional)
+- Rounded inputs, spacing, centered layout
+- Mobile-friendly
+
+### 📌 OPTIONAL (IF SUPPORTED)
+- Progress bar on file upload
+- Dark mode toggle
+- Return payload preview modal (useful for debugging)
+
+### 📌 APP DESCRIPTION FOR ORCHIDS
+Name: Envisioned Repurpose Portal
+Category: Media Upload & Automation Trigger
+Trigger: Manual user submission
+Output: POSTs payload to n8n
+
+Build the full app with all screens, components, validation, POST request logic, and error handling.
+
+Make the code clean, clear, and production-ready.

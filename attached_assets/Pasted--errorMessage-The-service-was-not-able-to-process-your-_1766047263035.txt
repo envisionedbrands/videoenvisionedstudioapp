@@ -1,0 +1,28 @@
+{
+  "errorMessage": "The service was not able to process your request",
+  "errorDescription": "ffprobe error: ",
+  "errorDetails": {
+    "rawErrorMessage": [
+      "500 - \"{\\\"build_number\\\":209,\\\"code\\\":500,\\\"endpoint\\\":\\\"/v1/media/metadata\\\",\\\"id\\\":null,\\\"job_id\\\":\\\"fced51c9-ce1b-4891-83ee-657266313a1f\\\",\\\"message\\\":\\\"ffprobe error: \\\",\\\"pid\\\":15,\\\"queue_id\\\":139989092024224,\\\"queue_length\\\":0,\\\"queue_time\\\":0,\\\"response\\\":null,\\\"run_time\\\":2.151,\\\"total_time\\\":2.151}\\n\""
+    ],
+    "httpCode": "500"
+  },
+  "n8nDetails": {
+    "nodeName": "metadata (video)",
+    "nodeType": "n8n-nodes-base.httpRequest",
+    "nodeVersion": 4.2,
+    "itemIndex": 0,
+    "time": "18/12/2025, 09:40:04",
+    "n8nVersion": "1.122.4 (Cloud)",
+    "binaryDataMode": "filesystem",
+    "stackTrace": [
+      "NodeApiError: The service was not able to process your request",
+      "    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/HttpRequest/V3/HttpRequestV3.node.ts:858:16)",
+      "    at processTicksAndRejections (node:internal/process/task_queues:105:5)",
+      "    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_08b575bec2313d5d8a4cc75358971443/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1074:8)",
+      "    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_08b575bec2313d5d8a4cc75358971443/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1255:11)",
+      "    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_08b575bec2313d5d8a4cc75358971443/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1691:27",
+      "    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_08b575bec2313d5d8a4cc75358971443/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2307:11"
+    ]
+  }
+}
